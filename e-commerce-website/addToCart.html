@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart - ApnaBazar</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER (Same as index.html) -->
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head container">
+          <div class="head_txt">
+            <p>Free shipping, 30-day return or refund guarantee.</p>
+          </div>
+          <div class="sing_in_up">
+            <a href="#">SIGN IN</a>
+            <a href="#">SIGN UP</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img
+              src="./public/images/apan.png"
+              alt="Apna-Bazar"
+              class="logo"
+              width="80%"
+            />
+          </a>
+        </div>
+
+        <nav class="navbar">
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            <li>
+              <a href="addToCart.html" class="nav-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartValue">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- CART SECTION -->
+    <section class="section-cart container">
+      <h1 class="cart-heading">Your Shopping Cart</h1>
+
+      <div id="cartItemsContainer"></div>
+
+      <!-- EMPTY MESSAGE -->
+      <div id="emptyCartMessage" class="empty-cart hidden">
+        <h2>Your cart is empty 🛒</h2>
+        <a href="products.html" class="btn">Continue Shopping</a>
+      </div>
+
+      <!-- CART TOTAL -->
+      <div id="cartTotalSection" class="cart-total hidden">
+        <h2>Order Summary</h2>
+        <p class="subtotal-text">Subtotal: ₹<span id="cartSubtotal">0</span></p>
+        <button id="clearCartBtn" class="btn danger">Clear Cart</button>
+        <button class="btn">Proceed to Checkout</button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="section-footer">
+      <div class="footer-container container">
+        <div class="content_1">
+          <img src="./images/apana.png" alt="logo" />
+          <p>Welcome to ApnaBazar, your trusted shopping partner!</p>
+        </div>
+        <div class="content_2">
+          <h4>SHOPPING</h4>
+          <a href="#">Computer Store</a>
+          <a href="#">Laptop Store</a>
+          <a href="#">Accessories</a>
+          <a href="#">Sales & Discount</a>
+        </div>
+        <div class="content_3">
+          <h4>Experience</h4>
+          <a href="./contact.html">Contact Us</a>
+          <a href="#">Payment Method</a>
+          <a href="#">Return & Exchange</a>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="src/cartPage.js"></script>
+  </body>
+</html>
