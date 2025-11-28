@@ -4,6 +4,6 @@ import { getCartProductFromLs } from "./getCartProducts";
 import { updateCartValue } from "./updateCartValue";
 
 document.addEventListener("DOMContentLoaded", () => {
-  showProductContainer(products, "#productContainer");
+  showProductContainer(products, "#productList");
   updateCartValue(getCartProductFromLs());
 });

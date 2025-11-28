@@ -1,13 +1,6 @@
 const cartValue = document.querySelector("#cartValue");
 
 export const updateCartValue = (cartProducts = []) => {
-  if (!Array.isArray(cartProducts)) cartProducts = [];
-
-  // Total items = sum of all quantities
-  const totalItems = cartProducts.reduce(
-    (sum, item) => sum + (item.quantity || 0),
-    0
-  );
-
-  cartValue.textContent = totalItems;
+  if (!cartValue) return;
+  cartValue.innerHTML = `<i class="fa-solid fa-cart-shopping"> ${cartProducts.length} </i>`;
 };

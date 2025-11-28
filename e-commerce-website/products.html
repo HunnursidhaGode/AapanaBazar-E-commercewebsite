@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Products - ApnaBazar</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <header class="section-navbar">
+      <!-- TOP BAR -->
+      <section class="top_txt">
+        <div class="head container">
+          <div class="head_txt">
+            <p>Free shipping, 30-day return or refund guarantee.</p>
+          </div>
+
+          <div class="sing_in_up">
+            <a href="signin.html">SIGN IN</a>
+            <a href="signup.html">SIGN UP</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAIN NAV -->
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img
+              src="./public/images/apanabazar.png"
+              alt="ApnaBazar Logo"
+              class="logo"
+              width="60"
+            />
+          </a>
+        </div>
+
+        <nav class="navbar">
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li>
+              <a href="products.html" class="nav-link active">Products</a>
+            </li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+
+            <li>
+              <a href="addToCart.html" class="nav-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartValue">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= PAGE HEADING ================= -->
+    <section class="section-products container">
+      <h1 class="section-common--heading">Our Products</h1>
+      <p class="section-common--subheading">Browse our full collection</p>
+
+      <div id="productList"></div>
+    </section>
+
+    <!-- ================= PRODUCT TEMPLATE ================= -->
+    <template id="productTemplate">
+      <div class="cards">
+        <article class="information card">
+          <span class="category"></span>
+
+          <div class="imageContainer">
+            <img class="productImage" src="" alt="Product" />
+          </div>
+
+          <h2 class="productName"></h2>
+
+          <div class="productRating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <p class="productDescription"></p>
+
+          <div class="productPriceElement">
+            <p class="productPrice"></p>
+            <p class="productActualPrice"></p>
+          </div>
+
+          <div class="productStockElement">
+            <p>Total Stocks Available:</p>
+            <p class="productStock"></p>
+          </div>
+
+          <div class="productQuantityElement">
+            <p>Quantity</p>
+            <div class="stockElement">
+              <button class="cartIncrement">+</button>
+              <p class="productQuantity">1</p>
+              <button class="cartDecrement">-</button>
+            </div>
+          </div>
+
+          <button class="add-to-cart-button">
+            <i class="fa-solid fa-cart-shopping"></i> Add To Cart
+          </button>
+
+          <button class="buy-now-button">
+            <i class="fa-solid fa-bolt"></i> Buy Now
+          </button>
+        </article>
+      </div>
+    </template>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="section-footer">
+      <div class="footer-container container">
+        <!-- Column 1 -->
+        <div class="content_1">
+          <img src="./images/apana.png" alt="logo" />
+          <p>
+            Welcome to ApnaBazar — your trusted destination for quality products
+            and great deals!
+          </p>
+          <img src="https://i.postimg.cc/Nj9dgJ98/cards.png" alt="cards" />
+        </div>
+
+        <!-- Column 2 -->
+        <div class="content_2">
+          <h4>SHOPPING</h4>
+          <a href="products.html">Computer Store</a>
+          <a href="products.html">Laptop Store</a>
+          <a href="products.html">Accessories</a>
+          <a href="products.html">Sales & Discount</a>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="content_3">
+          <h4>Experience</h4>
+          <a href="contact.html">Contact Us</a>
+          <a href="#">Delivery</a>
+          <a href="#">Return & Exchange</a>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="content_4">
+          <h4>NEWSLETTER</h4>
+          <p>Be the first to know about arrivals, sales & offers!</p>
+
+          <div class="f-mail">
+            <input type="email" placeholder="Your Email" />
+          </div>
+          <hr />
+        </div>
+      </div>
+
+      <div class="f-design">
+        <p>Design & Code by ApnaBazar</p>
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script type="module" src="/src/productsPage.js"></script>
+  </body>
+</html>

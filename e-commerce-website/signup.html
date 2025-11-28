@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - ApnaBazar</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head container">
+          <p>Free shipping, 30-day return or refund guarantee.</p>
+
+          <div class="sing_in_up" id="authButtons">
+            <a href="signin.html">SIGN IN</a>
+            <a href="signup.html">SIGN UP</a>
+          </div>
+
+          <div class="user-welcome" id="userWelcome" style="display: none">
+            Welcome, <span id="usernameText"></span>!
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- SIGN UP BOX -->
+    <section class="auth-section">
+      <div class="auth-box">
+        <h2>Create Account</h2>
+
+        <form id="signupForm">
+          <div class="input-group">
+            <label>Full Name</label>
+            <input
+              id="signupName"
+              type="text"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Email</label>
+            <input
+              id="signupEmail"
+              type="email"
+              placeholder="Enter email"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Password</label>
+            <input
+              id="signupPassword"
+              type="password"
+              placeholder="Create password"
+              required
+            />
+          </div>
+
+          <button class="btn" type="submit">Register</button>
+
+          <p>Already have an account? <a href="signin.html">Login</a></p>
+        </form>
+      </div>
+    </section>
+
+    <script type="module" src="src/navbar-auth.js"></script>
+    <script type="module" src="src/signup.js"></script>
+  </body>
+</html>

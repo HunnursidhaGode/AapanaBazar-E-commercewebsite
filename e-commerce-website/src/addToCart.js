@@ -1,37 +1,36 @@
-import { updateCartValue } from "./updateCartValue.js";
-import { getCartProductFromLs } from "./getCartProducts.js";
+import { getCartProductFromLs } from "./getCartProducts";
+import { updateCartValue } from "./updateCartValue";
 
 export const addToCart = (event, id, stock) => {
-  let cartItems = getCartProductFromLs();
+  let cart = getCartProductFromLs();
 
   const card = document.querySelector(`#card${id}`);
+  const quantity = parseInt(card.querySelector(".productQuantity").innerText);
 
-  let quantity = Number(card.querySelector(".productQuantity").innerText);
-  let price = Number(
-    card.querySelector(".productPrice").innerText.replace("₹", "")
-  );
+  let price = card.querySelector(".productPrice").innerText.replace("₹", "");
+  price = Number(price) * quantity;
 
-  // NEW: get image + name
-  let image = card.querySelector(".productImage").src;
-  let name = card.querySelector(".productName").innerText;
+  // CHECK IF PRODUCT ALREADY EXISTS
+  const existingProduct = cart.find((item) => item.id === id);
 
-  let finalPrice = price * quantity;
-
-  let existing = cartItems.find((item) => item.id === id);
-
-  if (existing) {
-    existing.quantity += quantity;
-    existing.price = existing.quantity * price;
+  if (existingProduct) {
+    // UPDATE QUANTITY & PRICE
+    existingProduct.quantity += quantity;
+    existingProduct.price += price;
   } else {
-    cartItems.push({
+    // ADD NEW PRODUCT
+    cart.push({
       id,
       quantity,
-      price: finalPrice,
-      image,
-      name,
+      price,
     });
   }
 
-  localStorage.setItem("CartproductLs", JSON.stringify(cartItems));
-  updateCartValue(cartItems);
+  // SAVE TO LOCALSTORAGE
+  localStorage.setItem("CartproductLs", JSON.stringify(cart));
+
+  // UPDATE CART ICON COUNT
+  updateCartValue(cart);
+
+  alert("Product added to cart!");
 };

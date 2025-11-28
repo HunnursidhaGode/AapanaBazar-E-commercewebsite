@@ -1,33 +1,36 @@
-import { addToCart } from "./addToCart.js";
-import { homeQuantityToggle } from "./homeQuantityToggle.js";
+import { addToCart } from "./addToCart";
+import { homeQuantityToggle } from "./homeQuantityToggle";
+import { buyNow } from "./buyNow";
 
-const productContainer = document.querySelector("#productContainer");
-const productTemplate = document.querySelector("#productTemplate");
+export const showProductContainer = (
+  products,
+  containerSelector = "#productContainer"
+) => {
+  const productContainer = document.querySelector(containerSelector);
+  const productTemplate = document.querySelector("#productTemplate");
 
-export const showProductContainer = (products = []) => {
-  if (!Array.isArray(products) || products.length === 0) {
-    console.warn("⚠ No products found.");
+  if (!productContainer || !productTemplate) {
+    console.warn("Product container or template not found");
     return;
   }
+
+  productContainer.innerHTML = "";
 
   products.forEach((product) => {
     const { id, category, name, image, price, description, stock } = product;
 
     const productClone = document.importNode(productTemplate.content, true);
 
-    // Give each card a unique ID
     const cardDiv = productClone.querySelector(".cards");
     cardDiv.setAttribute("id", `card${id}`);
 
-    // Fix: Proper image path handling
-    let imgPath = image;
-    if (imgPath.startsWith("../")) {
-      imgPath = imgPath.replace("../", "./");
-    }
-    productClone.querySelector(".productImage").src = imgPath;
-    productClone.querySelector(".productImage").alt = name;
+    const imgPath = image.startsWith("../")
+      ? image.replace("../", "./")
+      : image;
+    const imgElem = productClone.querySelector(".productImage");
+    imgElem.src = imgPath;
+    imgElem.alt = name;
 
-    // Add product details
     productClone.querySelector(".category").textContent = category;
     productClone.querySelector(".productName").textContent = name;
     productClone.querySelector(".productStock").textContent = stock;
@@ -38,19 +41,21 @@ export const showProductContainer = (products = []) => {
       price * 4
     }`;
 
-    // Quantity toggle (+/-)
     const stockElement = productClone.querySelector(".stockElement");
     stockElement.addEventListener("click", (event) => {
       homeQuantityToggle(event, id, stock);
     });
 
-    // Add to Cart button
     const addCartBtn = productClone.querySelector(".add-to-cart-button");
     addCartBtn.addEventListener("click", (event) => {
       addToCart(event, id, stock);
     });
 
-    // Add final product card into DOM
+    const buyNowBtn = productClone.querySelector(".buy-now-button");
+    buyNowBtn.addEventListener("click", (event) => {
+      buyNow(event, id, stock);
+    });
+
     productContainer.append(productClone);
   });
 };

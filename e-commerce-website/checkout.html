@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Checkout - ApnaBazar</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="section-navbar">
+      <section class="top_txt">
+        <div class="head container">
+          <p>Free shipping, 30-day return or refund guarantee.</p>
+
+          <div class="sing_in_up">
+            <a href="signin.html">SIGN IN</a>
+            <a href="signup.html">SIGN UP</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="index.html">
+            <img
+              src="./public/images/apanabazar.png"
+              alt="ApnaBazar Logo"
+              class="logo"
+              width="60"
+            />
+          </a>
+        </div>
+
+        <nav class="navbar">
+          <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+
+            <li>
+              <a href="addToCart.html" class="nav-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartValue">0</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- CHECKOUT SECTION -->
+    <section class="checkout-section container">
+      <h1 class="section-common--heading">Checkout</h1>
+
+      <div class="checkout-grid">
+        <!-- LEFT SIDE: FORM -->
+        <div class="checkout-address">
+          <h2>Shipping Address</h2>
+
+          <form id="addressForm">
+            <div class="input-group">
+              <label>Full Name</label>
+              <input type="text" id="fullName" required />
+            </div>
+
+            <div class="input-group">
+              <label>Phone Number</label>
+              <input type="text" id="phone" required maxlength="10" />
+            </div>
+
+            <div class="input-group">
+              <label>Full Address</label>
+              <textarea id="address" required rows="3"></textarea>
+            </div>
+
+            <div class="input-group">
+              <label>City</label>
+              <input type="text" id="city" required />
+            </div>
+
+            <div class="input-group">
+              <label>Pincode</label>
+              <input type="text" id="pincode" required maxlength="6" />
+            </div>
+          </form>
+        </div>
+
+        <!-- RIGHT SIDE: ORDER SUMMARY -->
+        <div class="checkout-summary">
+          <h2>Your Order</h2>
+
+          <div id="checkoutItems"></div>
+
+          <h3>Total: <span id="checkoutTotal">₹0</span></h3>
+
+          <button id="placeOrderBtn" class="btn primary">Place Order</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS -->
+    <script type="module" src="/src/checkout.js"></script>
+  </body>
+</html>
